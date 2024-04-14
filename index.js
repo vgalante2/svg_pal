@@ -15,8 +15,19 @@ const svgArray = inquirer.prompt([
     },
     {
         type: 'input',
-        name: 'color',
-        message: 'Type your color or hexadecimal number:'
+        name: 'textColor',
+        message: 'Type your color or hexadecimal number for your text: '
+    },
+    {
+        type: 'list',
+        name: 'shape',
+        message: 'Choose your shape: ',
+        choices: ['Triangle', 'Circle', 'Square']
+    },
+    {
+        type: 'input',
+        name: 'bgColor',
+        message: 'Type your color or hexadecimal number for your text: '
     }
 ]).then(answers => {
     console.log('Received answers:', answers);
