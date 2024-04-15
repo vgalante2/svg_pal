@@ -4,23 +4,14 @@ const path = require('path');
 
 function generateSvgContent({ name, textColor, shape, bgColor }) {
     return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dynamic SVG Generator</title>
-        <link rel="stylesheet" href="./Assets/css/style.css">
-    </head>
-    <body>
-        <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            ${shape === 'Circle' ? `<circle cx="100" cy="100" r="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
-            ${shape === 'Square' ? `<rect x="80" y="80" width="40" height="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
-            ${shape === 'Triangle' ? `<polygon points="100,40 60,140 140,140" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${textColor}" font-family="Arial" font-size="20">${name}</text>
-        </svg>
-    </body>
-    </html>
+    <div class="center" >
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    ${shape === 'Circle' ? `<circle cx="100" cy="100" r="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+    ${shape === 'Square' ? `<rect x="80" y="80" width="40" height="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+    ${shape === 'Triangle' ? `<polygon points="100,40 60,140 140,140" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${textColor}" font-family="Arial" font-size="20">${name}</text>
+</svg>
+</div>
     `;
 }
 
@@ -60,7 +51,7 @@ inquirer.prompt([
 });
 
 function renderSvg(svgContent) {
-    const filePath = path.join(__dirname, 'Assets', 'index.html');
+    const filePath = path.join(__dirname, 'Assets', 'logo.svg');
     fs.writeFile(filePath, svgContent, err => {
         if (err) {
             console.error('Error writing SVG file:', err);
@@ -72,3 +63,23 @@ function renderSvg(svgContent) {
 
 
 
+
+
+
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Dynamic SVG Generator</title>
+//     <link rel="stylesheet" href="./Assets/css/style.css">
+// </head>
+// <body>
+//     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+//         ${shape === 'Circle' ? `<circle cx="100" cy="100" r="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+//         ${shape === 'Square' ? `<rect x="80" y="80" width="40" height="40" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+//         ${shape === 'Triangle' ? `<polygon points="100,40 60,140 140,140" stroke="black" stroke-width="3" fill="${bgColor}" />` : ''}
+//         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${textColor}" font-family="Arial" font-size="20">${name}</text>
+//     </svg>
+// </body>
+// </html>

@@ -1,0 +1,10 @@
+
+    <div class="center" >
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    
+    
+    <polygon points="100,40 60,140 140,140" stroke="black" stroke-width="3" fill="black" />
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="red" font-family="Arial" font-size="20">cle</text>
+</svg>
+</div>
+    
